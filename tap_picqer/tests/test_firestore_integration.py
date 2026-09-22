@@ -42,7 +42,12 @@ def test_picqer_tap_uses_firestore_extension(monkeypatch):
                 "private_key": "-----BEGIN PRIVATE KEY-----\nabc\n-----END PRIVATE KEY-----\n",
                 "client_email": "test@example.com",
                 "collection_name": "picqer_changes",
-                "tap_streams": {"orders": "orders"},
+                "tap_streams": {
+                    "orders": {
+                        "entity_type": "orders",
+                        "end_delay_minutes": 5,
+                    }
+                },
                 "receiver_only": {},
             },
         }
